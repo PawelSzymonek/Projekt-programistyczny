@@ -1,0 +1,29 @@
+@media(max-width: 767px){	
+
+#ul_nawigacja a {
+	display: block;
+	height: 50px;	
+	margin-left: 10px;
+	line-height: 50px;
+	color: #fff;
+	font-size: 24px;
+	text-align: center;
+    background: rgb(153, 0, 51)
+}
+
+.statystyki ul li {
+    width: 50%;
+    font-size: 32px;
+}
+
+.statystyki ul li > img {
+    margin-top: 5px;
+}
+}
+
+@media(min-width: 768px) and (max-width: 991px){
+	
+.statystyki ul li {
+    width: 40%;  
+}
+}	
