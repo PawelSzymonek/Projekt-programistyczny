@@ -108,7 +108,7 @@ class UserManager {
     public function getUsernameById($ID) { //pobieranie nazwy użytkownika mając jego id
             
             $array = DatabaseManager::selectBySQL("SELECT username FROM users WHERE id='".$ID."'");
-            foreach($array as $user) {
+            foreach( (array)$array as $user) {
                 $username = $user['username'];
             }
             return $username; //zwracamy id

@@ -96,7 +96,11 @@ class ModuleLoader {
                 <section class="content statystyki">
                     <div class="container">
                     	 <h2>Statystyki:</h2>
-
+                         
+                         <div class="pirat">
+                         <img src="images/pirat.jpg">
+                         </div>
+                         
                          <div class="row">
 
                             <ul class="ul" id="u_'.$_SESSION['uid'].'">
@@ -112,6 +116,7 @@ class ModuleLoader {
                          <div class="row">
                             <h2>Ekwipunek:</h2>';
                             $select2 = DatabaseManager::selectBySQL("SELECT * FROM items WHERE uid={$_SESSION['uid']}");
+                        
 
                             if($select2) {
                                 foreach($select2 as $item) {
@@ -148,8 +153,9 @@ class ModuleLoader {
 
              <section class="content praca">
                     <div class="container">
-                    	 <h2>Praca:</h2>
-
+                    	 <h3>Praca:</h3>
+                        
+                        
                          <div class="row">
             				'.$form.'
                     	 ';
@@ -159,6 +165,10 @@ class ModuleLoader {
             echo '
                         </div>
 
+                   </div>
+                   
+                   <div class="praca">
+                   <img src="images/praca.jpg">
                    </div>
              </section>
             ';
@@ -214,7 +224,8 @@ class ModuleLoader {
                             echo '';
                         }
             break;
-
+                        
+                        
 
 
             case 'sklep':
@@ -223,8 +234,13 @@ class ModuleLoader {
                 <section class="content sklep" id="u_'.$_SESSION['uid'].'">
                     <div class="container">
                     	 <h2>Sklep:</h2>
-                         <div class="row">';
-
+                        
+                        <div class="sklep">
+                        <img src="images/sklep.jpg">
+                        </div>
+                        
+                        <div class="row">';
+                        
             			   ModuleLoader::loadItemsShop('rapier', 75);
                            ModuleLoader::loadItemsShop('płaszcz', 50);
                     	 echo '</div>
@@ -239,7 +255,7 @@ class ModuleLoader {
             echo '
                 <section class="content walka">
                     <div class="container">
-                    	 <h2>Walka:</h2>
+                    	 <h3>Walka:</h3>
 
                          <div class="row">
                         <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-xs-offset-1">
@@ -250,7 +266,7 @@ class ModuleLoader {
 
                             if($select_users) {
                                 foreach($select_users as $user) {
-                                 $username = UserManager::getUsernameById($user['id']);
+                                 $username = (new UserManager)->getUsernameById($user['id']);
                                  ModuleLoader::loadUserList($user['id'], $username, $user['points'], true, false);
                                 }
                             }
@@ -267,7 +283,7 @@ class ModuleLoader {
             echo '
                 <section class="content ranking">
                     <div class="container">
-                    	 <h2>Ranking:</h2>
+                    	 <h3>Ranking:</h3>
 
                          <div class="row">
 
@@ -280,7 +296,7 @@ class ModuleLoader {
                              if($select_users) {
                                 $i = 1;
                                  foreach($select_users as $user) {
-                                  $username = UserManager::getUsernameById($user['id']);
+                                  $username = (new UserManager)->getUsernameById($user['id']);
                                   ModuleLoader::loadUserList($user['id'], $username, $user['points'], false, $i);
                                   $i++;
                                  }
@@ -314,7 +330,7 @@ class ModuleLoader {
             echo '
                 <div class="row rejestracja">
                         <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-2">
-                            <h2>Zarejestruj:</h2>
+                            <h3>Zarejestruj:</h3>
             				<form action="register/" method="POST" class="home_form">
 
                                 <label for="username">Nazwa użytkownika</label>
@@ -341,7 +357,7 @@ class ModuleLoader {
             echo '
                 <div class="row logowanie">
                              <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-2">
-                            <h2>Zaloguj:</h2>
+                            <h3>Zaloguj:</h3>
             				<form action="login/" method="POST" class="home_form">
 
                                 <label for="login">Nazwa użytkownika</label>
